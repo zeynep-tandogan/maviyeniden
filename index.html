@@ -3,16 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mavi Yeniden</title>
+    <title>Mavi Yeniden | Kültür, Sanat ve Podcast</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Mavi Yeniden</h1>
-        <p>Çok Yakında Hizmetinizde</p>
+
+    <!-- Navigasyon Menüsü -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Mavi Yeniden</a>
+            <ul class="nav-menu">
+                <li><a href="#biz-kimiz">Biz Kimiz</a></li>
+                <li><a href="#podcastler">Podcast Arşivi</a></li>
+                <li><a href="#sesli-kitap">Sesli E-Kitap</a></li>
+                <li><a href="#kultur-sanat">Kültür Sanat</a></li>
+                <li><a href="#sehir-tarihi">Şehir Tarihi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Giriş (Hero) Alanı -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Dijital Kültür ve Ses Arşivi</h1>
+            <p>Podcastler, sesli kitaplar, şehir tarihi ve kültür sanat gündemine dair her şey tek bir platformda.</p>
+            <a href="#podcastler" class="btn">Dinlemeye Başla</a>
+        </div>
     </header>
-    <main>
-        <p>Bu site şu anda geliştirilme aşamasındadır.</p>
-    </main>
+
+    <!-- Biz Kimiz & Vizyon Bölümü -->
+    <section id="biz-kimiz" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Biz Kimiz & Vizyonumuz</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Biz Kimiz?</h3>
+                    <p>Mavi Yeniden, kültürel mirası, şehir tarihini ve sanatsal içerikleri dijital dünyaya taşıyan yenilikçi bir sesli arşiv platformudur.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Vizyonumuz</h3>
+                    <p>Gelecek nesillere kalıcı bir dijital kütüphane bırakmak; dinleyicilerimizi derinlikli podcastler, sesli e-kitaplar ve nitelikli içeriklerle buluşturmaktır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast Arşivi Bölümü (Spotify Entegreli) -->
+    <section id="podcastler" class="section">
+        <div class="container">
+            <h2 class="section-title">Podcast Arşivi</h2>
+            <p class="section-subtitle">Tüm bölümlerimizi doğrudan aşağıdan dinleyebilirsiniz:</p>
+            
+            <div class="podcast-player-container">
+                <!-- Spotify Embed Oynatıcı -->
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/033h3NmkaNFW9oArqgGalK?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sesli E-Kitap Bölümü -->
+    <section id="sesli-kitap" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Sesli E-Kitap</h2>
+            <div class="placeholder-box">
+                <p>🎙️ Sesli e-kitap arşivimiz çok yakında burada listelenecektir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kültür Sanat Haberleri Bölümü -->
+    <section id="kultur-sanat" class="section">
+        <div class="container">
+            <h2 class="section-title">Kültür Sanat Haberleri</h2>
+            <div class="placeholder-box">
+                <p>🎭 Güncel kültür, sanat ve sergi haberleri çok yakında sizlerle.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Şehir Tarihi Bölümü -->
+    <section id="sehir-tarihi" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Şehir Tarihi</h2>
+            <div class="placeholder-box">
+                <p>📜 Şehirlerin derin tarihlerine ve kaybolan hikayelerine dair özel içerikler çok yakında.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mavi Yeniden. Tüm Hakları Saklıdır.</p>
+    </footer>
+
 </body>
 </html>
