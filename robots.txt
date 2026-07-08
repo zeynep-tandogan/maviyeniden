@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maviyeniden.com.tr/sitemap.xml
