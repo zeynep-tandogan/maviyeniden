@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════════════════
+   MAVI YENİDEN — TEMA RENK PALETİ
+   Tüm renkler buradan yönetilir. Bileşenler bu değişkenleri kullanır.
+   Koyu tema varsayılan (root), Açık tema [data-theme="light"] ile aktif.
+═══════════════════════════════════════════════════════ */
+
+/* ── KOYU TEMA (varsayılan) ── */
+:root {
+  /* Arkaplan katmanları */
+  --bg-base:        #0a0f1e;     /* En derin arka plan */
+  --bg-surface:     #0f172a;     /* Kart, panel yüzey */
+  --bg-elevated:    #1e293b;     /* Üstte duran öğeler */
+  --bg-navbar:      rgba(10, 15, 30, 0.92);
+  --bg-drawer:      linear-gradient(160deg, #0d1526, #0a0f1e);
+  --bg-footer:      #060d1a;
+  --bg-section-alt: #111827;     /* Alternatif bölüm arkaplanı */
+
+  /* Metin renkleri */
+  --text-primary:   #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted:     #64748b;
+  --text-subtle:    #475569;
+
+  /* Aksan / Marka rengi */
+  --accent:         #38bdf8;     /* Ana mavi */
+  --accent-dark:    #0284c7;     /* Daha koyu ton */
+  --accent-light:   #7dd3fc;    /* Daha açık ton */
+  --accent-glow:    rgba(56, 189, 248, 0.4);
+
+  /* Kenarlıklar */
+  --border-subtle:  rgba(56, 189, 248, 0.12);
+  --border-medium:  rgba(56, 189, 248, 0.2);
+  --border-section: rgba(56, 189, 248, 0.08);
+
+  /* Durum renkleri */
+  --color-danger:   #ef4444;
+  --color-danger-bg: rgba(239, 68, 68, 0.1);
+  --color-danger-border: rgba(239, 68, 68, 0.3);
+  --color-danger-text: #fca5a5;
+
+  /* Tema geçiş ikonu */
+  --theme-icon: '☀️';
+
+  /* Gölgeler */
+  --shadow-card:    0 12px 36px rgba(0, 0, 0, 0.3);
+  --shadow-slider:  0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-podcast: 0 12px 40px rgba(0, 0, 0, 0.5);
+
+  /* Hero gradyanı */
+  --hero-overlay:   linear-gradient(160deg, rgba(10,15,30,0.85) 0%, rgba(14,40,100,0.75) 100%);
+
+  /* Kart gradyanı */
+  --card-gradient:  linear-gradient(145deg, #0f172a, #1e293b);
+
+  /* Tema adı */
+  --theme-name: 'koyu';
+}
+
+/* ── AÇIK TEMA ── */
+[data-theme="light"] {
+  /* Arkaplan katmanları */
+  --bg-base:        #f0f7ff;
+  --bg-surface:     #ffffff;
+  --bg-elevated:    #e2ecf7;
+  --bg-navbar:      rgba(240, 247, 255, 0.95);
+  --bg-drawer:      linear-gradient(160deg, #dbeafe, #f0f7ff);
+  --bg-footer:      #1e3a5f;
+  --bg-section-alt: #e8f0fe;
+
+  /* Metin renkleri */
+  --text-primary:   #0f172a;
+  --text-secondary: #334155;
+  --text-muted:     #475569;
+  --text-subtle:    #94a3b8;
+
+  /* Aksan / Marka rengi (aynı kalabilir veya farklılaştırılabilir) */
+  --accent:         #0284c7;
+  --accent-dark:    #0369a1;
+  --accent-light:   #38bdf8;
+  --accent-glow:    rgba(2, 132, 199, 0.3);
+
+  /* Kenarlıklar */
+  --border-subtle:  rgba(2, 132, 199, 0.15);
+  --border-medium:  rgba(2, 132, 199, 0.25);
+  --border-section: rgba(2, 132, 199, 0.1);
+
+  /* Durum renkleri (değişmez) */
+  --color-danger:   #dc2626;
+  --color-danger-bg: rgba(220, 38, 38, 0.08);
+  --color-danger-border: rgba(220, 38, 38, 0.25);
+  --color-danger-text: #dc2626;
+
+  /* Tema geçiş ikonu */
+  --theme-icon: '🌙';
+
+  /* Gölgeler */
+  --shadow-card:    0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-slider:  0 12px 40px rgba(0, 0, 0, 0.12);
+  --shadow-podcast: 0 8px 28px rgba(0, 0, 0, 0.1);
+
+  /* Hero gradyanı */
+  --hero-overlay:   linear-gradient(160deg, rgba(240,247,255,0.82) 0%, rgba(186,230,255,0.7) 100%);
+
+  /* Kart gradyanı */
+  --card-gradient:  linear-gradient(145deg, #ffffff, #e8f4fd);
+
+  /* Tema adı */
+  --theme-name: 'açık';
+}

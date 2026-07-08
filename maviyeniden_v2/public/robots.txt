@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zeynep-tandogan.github.io/maviyeniden/sitemap.xml
