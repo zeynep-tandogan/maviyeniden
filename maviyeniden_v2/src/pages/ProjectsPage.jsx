@@ -17,7 +17,7 @@ function ProjectsPage() {
     {
       title: 'Tarihi Şehir Hikayeleri',
       category: 'Şehir Tarihi',
-      description: 'İzmir, İstanbul ve diğer tarihi şehirlerin sokak sokak hikayelerinin seslendirilmesi.',
+      description: 'İzmit, İstanbul ve diğer tarihi şehirlerin sokak sokak hikayelerinin seslendirilmesi.',
       status: 'Yakında',
     },
     {

@@ -61,8 +61,8 @@ const slides = [
   {
     id: 4,
     badge: 'Yeni İçerik',
-    title: 'Mavi İçerik: İzmir Özel Bölümü',
-    desc: "İzmir'in tarihi dokusu ve kültürel mirasını anlatan özel bölümümüz yayınlandı.",
+    title: 'Mavi İçerik: İzmit Özel Bölümü',
+    desc: "İzmit'in tarihi dokusu ve kültürel mirasını anlatan özel bölümümüz yayınlandı.",
     link: '/projeler',
     linkText: 'Hemen Oku',
     color: 'hsl(210, 40%, 15%)',
