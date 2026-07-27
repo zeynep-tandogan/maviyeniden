@@ -9,6 +9,8 @@ import AboutPage from './pages/AboutPage';
 import MissionVisionPage from './pages/MissionVisionPage';
 import ProjectsPage from './pages/ProjectsPage';
 import PartnersPage from './pages/PartnersPage';
+import FotoGaleriPage from './pages/FotoGaleriPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/misyon-vizyon" element={<MissionVisionPage />} />
           <Route path="/projeler" element={<ProjectsPage />} />
           <Route path="/is-birlikcilerimiz" element={<PartnersPage />} />
+          <Route path="/foto-galeri" element={<FotoGaleriPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

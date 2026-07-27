@@ -1,27 +1,58 @@
-import React, { useState } from 'react';
-
-// 🎙️ Yeni bölüm eklemek için buraya yeni bir obje ekle:
-const episodes = [
-  {
-    id: 1,
-    title: 'bayramlar...',
-    description: 'bayram ve yol üstüne kısa bir sohbet',
-    date: '31 Mayıs 2026',
-    duration: '5 dk',
-    spotifyEmbedId: '2JCiE9HOTZcqUWsLuApWOE',
-  },
-  {
-    id: 2,
-    title: 'Anne Güncesi',
-    description: 'annelik, roller, çay, sohbet...',
-    date: '15 Mayıs 2026',
-    duration: '7 dk',
-    spotifyEmbedId: '4gWZRDHpa1Y9Ez2rIMiyKs',
-  },
-];
+import React, { useState, useEffect } from 'react';
 
 function PodcastPage() {
-  const [selectedEp, setSelectedEp] = useState(episodes[0]);
+  const [episodes, setEpisodes] = useState([]);
+  const [selectedEp, setSelectedEp] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/podcast')
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Spotify podcast bölümleri yüklenirken bir hata oluştu.');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setEpisodes(data);
+        if (data.length > 0) {
+          setSelectedEp(data[0]);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="podcastler" className="section podcast-page-section">
+        <div className="container">
+          <h2 className="section-title">Podcast Arşivi</h2>
+          <div className="podcast-loading">
+            <div className="podcast-spinner" />
+            <p>Bölümler Spotify'dan yükleniyor...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error || episodes.length === 0) {
+    return (
+      <section id="podcastler" className="section podcast-page-section">
+        <div className="container">
+          <h2 className="section-title">Podcast Arşivi</h2>
+          <div className="podcast-error">
+            <p>⚠️ {error || 'Yakında yeni podcast bölümleri eklenecektir.'}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="podcastler" className="section podcast-page-section">

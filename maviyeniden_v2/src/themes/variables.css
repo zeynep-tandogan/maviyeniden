@@ -1,109 +1,179 @@
 /* ═══════════════════════════════════════════════════════
-   MAVI YENİDEN — TEMA RENK PALETİ
-   Tüm renkler buradan yönetilir. Bileşenler bu değişkenleri kullanır.
-   Koyu tema varsayılan (root), Açık tema [data-theme="light"] ile aktif.
+   MAVİ YENİDEN — TEMA RENK PALETİ v6.0
+   Yaklaşım: Ferah Slate-Gray & Yumuşak Renk Geçişleri (Gradients)
+   Çok boğucu mavi olmayan, dengeli, ferah ve modern tasarım.
 ═══════════════════════════════════════════════════════ */
 
-/* ── KOYU TEMA (varsayılan) ── */
+/* ── KOYU TEMA (varsayılan) — Ferah Slate-Gray & Gradyanlar ── */
 :root {
-  /* Arkaplan katmanları */
-  --bg-base:        #0a0f1e;     /* En derin arka plan */
-  --bg-surface:     #0f172a;     /* Kart, panel yüzey */
-  --bg-elevated:    #1e293b;     /* Üstte duran öğeler */
-  --bg-navbar:      rgba(10, 15, 30, 0.92);
-  --bg-drawer:      linear-gradient(160deg, #0d1526, #0a0f1e);
-  --bg-footer:      #060d1a;
-  --bg-section-alt: #111827;     /* Alternatif bölüm arkaplanı */
+  /* ─── Arkaplan — Ferah Slate-Gray (Yoğun lacivert olmayan, havadar) ─── */
+  --bg-base:        hsl(215, 14%, 11%);      /* Koyu slate-antrasit — ana zemin */
+  --bg-surface:     hsl(215, 12%, 14%);      /* Kart yüzeyi */
+  --bg-elevated:    hsl(215, 10%, 18%);      /* Yükseltilmiş panel */
+  --bg-navbar:      hsla(215, 14%, 10%, 0.94);
+  --bg-drawer:      linear-gradient(160deg, hsl(215, 12%, 14%), hsl(215, 14%, 11%));
+  --bg-footer:      hsl(215, 16%, 8%);
+  --bg-section-alt: hsl(215, 12%, 13%);
+  --bg-card-hover:  hsl(215, 10%, 16%);
 
-  /* Metin renkleri */
-  --text-primary:   #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted:     #64748b;
-  --text-subtle:    #475569;
+  /* ─── Metin — Sıcak Krem & Slate-Gri ─── */
+  --text-primary:   hsl(38, 22%, 93%);    /* Krem beyaz — sıcak */
+  --text-secondary: hsl(214, 12%, 74%);   /* Slate-gri metin */
+  --text-muted:     hsl(214, 9%, 56%);    /* Soluk gri */
+  --text-subtle:    hsl(214, 8%, 42%);    /* En soluk */
 
-  /* Aksan / Marka rengi */
-  --accent:         #38bdf8;     /* Ana mavi */
-  --accent-dark:    #0284c7;     /* Daha koyu ton */
-  --accent-light:   #7dd3fc;    /* Daha açık ton */
-  --accent-glow:    rgba(56, 189, 248, 0.4);
+  /* ─── Birincil Yumuşak Aksan — Gökyüzü Mavisi ─── */
+  --accent:         hsl(205, 85%, 58%);   /* Gökyüzü mavisi */
+  --accent-dark:    hsl(208, 80%, 46%);   /* Koyu mavi */
+  --accent-light:   hsl(194, 90%, 65%);   /* Buz mavisi */
+  --accent-deep:    hsl(212, 70%, 28%);   /* Derin mavi */
+  --accent-glow:    hsla(205, 85%, 58%, 0.25);
+  --accent-glow-soft: hsla(205, 85%, 58%, 0.10);
 
-  /* Kenarlıklar */
-  --border-subtle:  rgba(56, 189, 248, 0.12);
-  --border-medium:  rgba(56, 189, 248, 0.2);
-  --border-section: rgba(56, 189, 248, 0.08);
+  /* ─── İkincil Sıcak Aksan — Şampanya Altını ─── */
+  --accent-warm:         hsl(38, 92%, 58%);   /* Şampanya altını */
+  --accent-warm-light:   hsl(42, 95%, 68%);
+  --accent-warm-dark:    hsl(28, 85%, 44%);
+  --accent-warm-glow:    hsla(38, 92%, 58%, 0.25);
 
-  /* Durum renkleri */
-  --color-danger:   #ef4444;
-  --color-danger-bg: rgba(239, 68, 68, 0.1);
-  --color-danger-border: rgba(239, 68, 68, 0.3);
-  --color-danger-text: #fca5a5;
+  /* ─── Birincil Renk Geçişi (Gradient) — Ferah Mavi-Altın Geçişi ─── */
+  --gradient-primary:    linear-gradient(135deg, hsl(205, 85%, 58%) 0%, hsl(38, 92%, 58%) 100%);
+  --gradient-hover:      linear-gradient(135deg, hsl(205, 90%, 62%) 0%, hsl(38, 95%, 62%) 100%);
+  --gradient-glow:       0 6px 20px hsla(205, 85%, 58%, 0.25);
 
-  /* Tema geçiş ikonu */
-  --theme-icon: '☀️';
+  /* Başarı — zümrüt yeşili */
+  --accent-success: hsl(158, 55%, 42%);
 
-  /* Gölgeler */
-  --shadow-card:    0 12px 36px rgba(0, 0, 0, 0.3);
-  --shadow-slider:  0 20px 60px rgba(0, 0, 0, 0.5);
-  --shadow-podcast: 0 12px 40px rgba(0, 0, 0, 0.5);
+  /* ─── Kenarlıklar — Slate Tonlu ─── */
+  --border-subtle:  hsla(215, 20%, 50%, 0.12);
+  --border-medium:  hsla(215, 20%, 50%, 0.22);
+  --border-strong:  hsla(215, 20%, 50%, 0.40);
+  --border-section: hsla(215, 20%, 50%, 0.07);
+  --border-card:    hsla(215, 12%, 50%, 0.14);
 
-  /* Hero gradyanı */
-  --hero-overlay:   linear-gradient(160deg, rgba(10,15,30,0.85) 0%, rgba(14,40,100,0.75) 100%);
+  /* ─── Durum Renkleri ─── */
+  --color-danger:        hsl(4, 78%, 56%);
+  --color-danger-bg:     hsla(4, 78%, 56%, 0.10);
+  --color-danger-border: hsla(4, 78%, 56%, 0.28);
+  --color-danger-text:   hsl(4, 78%, 76%);
 
-  /* Kart gradyanı */
-  --card-gradient:  linear-gradient(145deg, #0f172a, #1e293b);
+  /* ─── Gölgeler ─── */
+  --shadow-card: 0 6px 28px hsla(215, 30%, 4%, 0.5),
+                 0 1px 0 hsla(205, 60%, 55%, 0.05) inset;
+  --shadow-card-hover: 0 14px 44px hsla(215, 30%, 4%, 0.65),
+                       0 0 0 1px hsla(205, 60%, 55%, 0.16) inset;
+  --shadow-slider:  0 20px 60px hsla(215, 30%, 4%, 0.55);
+  --shadow-podcast: 0 10px 38px hsla(215, 30%, 4%, 0.45);
+  --shadow-navbar:  0 2px 18px hsla(215, 30%, 4%, 0.4);
+  --shadow-glow:    0 0 22px hsla(205, 85%, 58%, 0.18);
 
-  /* Tema adı */
+  /* ─── Hero Gradyanı — Yumuşak Geçişli Slate ─── */
+  --hero-overlay: linear-gradient(
+    155deg,
+    hsla(215, 18%, 10%, 0.91) 0%,
+    hsla(215, 14%, 13%, 0.78) 50%,
+    hsla(215, 12%, 11%, 0.70) 100%
+  );
+
+  /* ─── Kart Gradyanı ─── */
+  --card-gradient: linear-gradient(
+    145deg,
+    hsl(215, 12%, 14%) 0%,
+    hsl(215, 10%, 17%) 100%
+  );
+
+  /* ─── Bölüm Gradyanı ─── */
+  --section-gradient: linear-gradient(
+    180deg,
+    hsl(215, 14%, 11%) 0%,
+    hsl(215, 12%, 13%) 100%
+  );
+
+  /* ─── Glassmorphism ─── */
+  --glass-bg: hsla(215, 12%, 16%, 0.60);
+  --glass-border: hsla(205, 40%, 55%, 0.15);
+  --glass-blur: blur(16px);
+
   --theme-name: 'koyu';
 }
 
-/* ── AÇIK TEMA ── */
+/* ── AÇIK TEMA ── Krem & Okyanus Gradyanı ── */
 [data-theme="light"] {
-  /* Arkaplan katmanları */
-  --bg-base:        #f0f7ff;
-  --bg-surface:     #ffffff;
-  --bg-elevated:    #e2ecf7;
-  --bg-navbar:      rgba(240, 247, 255, 0.95);
-  --bg-drawer:      linear-gradient(160deg, #dbeafe, #f0f7ff);
-  --bg-footer:      #1e3a5f;
-  --bg-section-alt: #e8f0fe;
+  /* Arkaplan — Sıcak Krem-Kağıt */
+  --bg-base:        hsl(38, 30%, 96%);    /* Krem zemin */
+  --bg-surface:     hsl(36, 25%, 99%);    /* Neredeyse beyaz */
+  --bg-elevated:    hsl(35, 22%, 92%);    /* Hafif krem */
+  --bg-navbar:      hsla(38, 30%, 96%, 0.96);
+  --bg-drawer:      linear-gradient(160deg, hsl(35, 28%, 90%), hsl(38, 30%, 96%));
+  --bg-footer:      hsl(214, 35%, 16%);   /* Koyu slate laciverti */
+  --bg-section-alt: hsl(36, 24%, 93%);
+  --bg-card-hover:  hsl(36, 22%, 95%);
 
-  /* Metin renkleri */
-  --text-primary:   #0f172a;
-  --text-secondary: #334155;
-  --text-muted:     #475569;
-  --text-subtle:    #94a3b8;
+  /* Metin */
+  --text-primary:   hsl(215, 30%, 14%);   /* Koyu slate metin */
+  --text-secondary: hsl(215, 15%, 36%);
+  --text-muted:     hsl(215, 10%, 52%);
+  --text-subtle:    hsl(215, 8%, 66%);
 
-  /* Aksan / Marka rengi (aynı kalabilir veya farklılaştırılabilir) */
-  --accent:         #0284c7;
-  --accent-dark:    #0369a1;
-  --accent-light:   #38bdf8;
-  --accent-glow:    rgba(2, 132, 199, 0.3);
+  /* Aksan — Kurumsal Slate Mavi */
+  --accent:         hsl(210, 75%, 44%);   /* Asil lacivert/mavi */
+  --accent-dark:    hsl(214, 80%, 34%);
+  --accent-light:   hsl(202, 75%, 56%);
+  --accent-deep:    hsl(218, 80%, 22%);
+  --accent-glow:    hsla(210, 75%, 44%, 0.18);
+  --accent-glow-soft: hsla(210, 75%, 44%, 0.08);
+
+  /* Sıcak Aksan — Altın & Kehribar (Açık Tema) */
+  --accent-warm:         hsl(30, 85%, 48%);   /* Sıcak amber */
+  --accent-warm-light:   hsl(38, 90%, 62%);
+  --accent-warm-dark:    hsl(24, 80%, 36%);
+  --accent-warm-glow:    hsla(30, 85%, 48%, 0.22);
+
+  /* Renk Geçişi (Açık Tema) */
+  --gradient-primary:    linear-gradient(135deg, hsl(210, 75%, 44%) 0%, hsl(30, 85%, 48%) 100%);
+  --gradient-hover:      linear-gradient(135deg, hsl(210, 80%, 48%) 0%, hsl(30, 90%, 52%) 100%);
+  --gradient-glow:       0 6px 16px hsla(210, 75%, 44%, 0.18);
+
+  --accent-success: hsl(158, 55%, 36%);
 
   /* Kenarlıklar */
-  --border-subtle:  rgba(2, 132, 199, 0.15);
-  --border-medium:  rgba(2, 132, 199, 0.25);
-  --border-section: rgba(2, 132, 199, 0.1);
+  --border-subtle:  hsla(214, 30%, 40%, 0.14);
+  --border-medium:  hsla(214, 30%, 40%, 0.26);
+  --border-strong:  hsla(214, 30%, 40%, 0.42);
+  --border-section: hsla(214, 30%, 40%, 0.09);
+  --border-card:    hsla(214, 20%, 40%, 0.18);
 
-  /* Durum renkleri (değişmez) */
-  --color-danger:   #dc2626;
-  --color-danger-bg: rgba(220, 38, 38, 0.08);
-  --color-danger-border: rgba(220, 38, 38, 0.25);
-  --color-danger-text: #dc2626;
-
-  /* Tema geçiş ikonu */
-  --theme-icon: '🌙';
+  /* Durum renkleri */
+  --color-danger:        hsl(4, 72%, 50%);
+  --color-danger-bg:     hsla(4, 72%, 50%, 0.08);
+  --color-danger-border: hsla(4, 72%, 50%, 0.22);
+  --color-danger-text:   hsl(4, 72%, 42%);
 
   /* Gölgeler */
-  --shadow-card:    0 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-slider:  0 12px 40px rgba(0, 0, 0, 0.12);
-  --shadow-podcast: 0 8px 28px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 4px 18px hsla(215, 20%, 30%, 0.10),
+                 0 1px 0 hsla(210, 60%, 55%, 0.06) inset;
+  --shadow-card-hover: 0 10px 32px hsla(215, 20%, 30%, 0.17),
+                       0 0 0 1px hsla(210, 60%, 55%, 0.16) inset;
+  --shadow-slider:  0 12px 40px hsla(215, 20%, 30%, 0.14);
+  --shadow-podcast: 0 7px 24px hsla(215, 20%, 30%, 0.11);
+  --shadow-navbar:  0 2px 14px hsla(215, 20%, 30%, 0.09);
+  --shadow-glow:    0 0 18px hsla(210, 75%, 44%, 0.14);
 
-  /* Hero gradyanı */
-  --hero-overlay:   linear-gradient(160deg, rgba(240,247,255,0.82) 0%, rgba(186,230,255,0.7) 100%);
+  /* Hero */
+  --hero-overlay: linear-gradient(
+    155deg,
+    hsla(38, 30%, 96%, 0.86) 0%,
+    hsla(214, 20%, 90%, 0.76) 50%,
+    hsla(214, 18%, 84%, 0.68) 100%
+  );
 
-  /* Kart gradyanı */
-  --card-gradient:  linear-gradient(145deg, #ffffff, #e8f4fd);
+  /* Kart */
+  --card-gradient: linear-gradient(145deg, hsl(36, 25%, 99%), hsl(214, 10%, 95%));
+  --section-gradient: linear-gradient(180deg, hsl(38, 30%, 96%) 0%, hsl(214, 10%, 93%) 100%);
 
-  /* Tema adı */
+  --glass-bg: hsla(38, 30%, 96%, 0.72);
+  --glass-border: hsla(214, 40%, 40%, 0.18);
+  --glass-blur: blur(16px);
+
   --theme-name: 'açık';
 }

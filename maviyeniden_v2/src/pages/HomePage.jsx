@@ -1,51 +1,142 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import bizKimizImg from '../assets/biz_kimiz.jpeg';
 
+/* ─── Hero arka plan slaytları ─── */
+const heroSlides = [
+  {
+    // Kütüphane — kitap rafları, sıcak ışık
+    url: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1800&q=85',
+    label: 'Kütüphane',
+  },
+  {
+    // İstanbul — Boğaz manzarası
+    url: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1800&q=85',
+    label: 'İstanbul',
+  },
+  {
+    // Vintage mikrofon — sanatsal, sıcak
+    url: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=1800&q=85',
+    label: 'Ses Arşivi',
+  },
+  {
+    // Eski şehir sokak — kültürel
+    url: 'https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&w=1800&q=85',
+    label: 'Kültür',
+  },
+];
+
+/* ─── Haberler Slider verisi ─── */
 const slides = [
   {
     id: 1,
-    badge: 'YENİ PROJE',
+    badge: 'Yeni Proje',
     title: 'Mavi Yeniden Podcast Serisi',
     desc: 'Kültür, sanat ve şehir tarihi üzerine derinlikli sohbetler. Hemen dinlemeye başlayın!',
     link: '/podcast',
-    linkText: 'Podcast\'i Dinle',
-    color: '#1e3a8a',
+    linkText: "Podcast'i Dinle",
+    color: 'hsl(215, 60%, 16%)',
+    img: bizKimizImg,
   },
   {
     id: 2,
-    badge: 'HABER',
+    badge: 'Haber',
     title: 'Yeni Sesli E-Kitap Koleksiyonu',
     desc: 'Seçkin eserlerden derlenen sesli kitap arşivimiz yayında. Keşfedin!',
     link: '/sesli-kitap',
     linkText: 'İncele',
-    color: '#0f4c75',
+    color: 'hsl(225, 45%, 15%)',
+    img: null,
   },
   {
     id: 3,
-    badge: 'DUYURU',
-    title: 'Kültür Sanat Etkinlikleri 2026',
+    badge: 'Duyuru',
+    title: 'Kültür-Sanat Etkinlikleri 2026',
     desc: 'Bu yılın en özel kültür ve sanat etkinliklerini takip edin, kaçırmayın.',
     link: '/kultur-sanat',
     linkText: 'Etkinlikleri Gör',
-    color: '#1a3a5c',
+    color: 'hsl(220, 50%, 14%)',
+    img: bizKimizImg,
   },
   {
     id: 4,
-    badge: 'YENİ İÇERİK',
-    title: 'Şehir Tarihi: İzmir Özel Bölümü',
-    desc: 'İzmir\'in tarihi dokusu ve kültürel mirasını anlatan özel bölümümüz yayınlandı.',
+    badge: 'Yeni İçerik',
+    title: 'Mavi İçerik: İzmir Özel Bölümü',
+    desc: "İzmir'in tarihi dokusu ve kültürel mirasını anlatan özel bölümümüz yayınlandı.",
+    link: '/projeler',
     linkText: 'Hemen Oku',
-    color: '#0d2137',
+    color: 'hsl(210, 40%, 15%)',
+    img: null,
   },
 ];
 
+/* ─── Hero Bileşeni ─── */
+function HeroSection() {
+  const [bgIndex, setBgIndex] = useState(0);
+  const [fadeIn, setFadeIn] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeIn(false);
+      setTimeout(() => {
+        setBgIndex((prev) => (prev + 1) % heroSlides.length);
+        setFadeIn(true);
+      }, 600);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <header className="hero">
+      {/* Kendi kendine dönen arka plan fotoğrafı */}
+      <div
+        className={`hero-bg-slide ${fadeIn ? 'visible' : ''}`}
+        style={{ backgroundImage: `url('${heroSlides[bgIndex].url}')` }}
+      />
+      {/* Katman gradyanı */}
+      <div className="hero-overlay-gradient" />
+      {/* Taneli doku efekti */}
+      <div className="hero-grain" />
+
+      {/* İçerik */}
+      <div className="hero-content">
+        <span className="hero-eyebrow">Dijital Kültür Platformu</span>
+        <h1 className="hero-headline">
+          <span className="hero-brand-blue">Mavi</span><br />
+          <em>Yeniden</em>
+        </h1>
+        <p className="hero-sub">
+          Podcast'ler, sesli kitaplar, şehir tarihi ve kültür&#8209;sanat gündemine dair her şey tek çatı altında.
+        </p>
+        <div className="hero-actions">
+          <Link to="/podcast" className="btn btn-primary">Podcast'i Dinle</Link>
+          <Link to="/hakkimizda" className="btn btn-ghost">Bizi Tanı</Link>
+        </div>
+      </div>
+
+      {/* Slayt göstergesi */}
+      <div className="hero-slide-dots">
+        {heroSlides.map((_, i) => (
+          <span
+            key={i}
+            className={`hero-slide-dot ${i === bgIndex ? 'active' : ''}`}
+            onClick={() => { setFadeIn(false); setTimeout(() => { setBgIndex(i); setFadeIn(true); }, 300); }}
+          />
+        ))}
+      </div>
+
+    </header>
+  );
+}
+
+/* ─── Haberler Slider ─── */
 function NewsSlider() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -53,21 +144,31 @@ function NewsSlider() {
 
   return (
     <section className="news-slider-section">
-      <div className="news-slider-inner" style={{ background: `linear-gradient(135deg, ${slide.color}, #0f172a)` }}>
+      <div className="news-slider-header">
+        <h2 className="news-slider-heading">Haberler &amp; Duyurular</h2>
+        <div className="news-slider-line" />
+      </div>
+      <div
+        className="news-slider-inner"
+        style={{ background: `linear-gradient(135deg, ${slide.color} 0%, hsl(26, 10%, 8%) 100%)` }}
+      >
+        {slide.img && (
+          <div className="news-slider-photo">
+            <img src={slide.img} alt={slide.title} className="news-slider-img" />
+            <div className="news-slider-photo-overlay" />
+          </div>
+        )}
         <div className="news-slider-content">
           <span className="news-badge">{slide.badge}</span>
-          <h2 className="news-title">{slide.title}</h2>
+          <h3 className="news-title">{slide.title}</h3>
           <p className="news-desc">{slide.desc}</p>
-          <Link to={slide.link} className="news-cta-btn">{slide.linkText}</Link>
+          {slide.link && (
+            <Link to={slide.link} className="news-cta-btn">{slide.linkText}</Link>
+          )}
         </div>
         <div className="slider-dots">
           {slides.map((_, i) => (
-            <button
-              key={i}
-              className={`slider-dot ${i === current ? 'active' : ''}`}
-              onClick={() => setCurrent(i)}
-              aria-label={`Slayt ${i + 1}`}
-            />
+            <button key={i} className={`slider-dot ${i === current ? 'active' : ''}`} onClick={() => setCurrent(i)} aria-label={`Slayt ${i + 1}`} />
           ))}
         </div>
         <div className="slider-arrows">
@@ -79,22 +180,49 @@ function NewsSlider() {
   );
 }
 
+/* ─── Ana Sayfa ─── */
 function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <header className="hero">
-        <div className="hero-content">
-          <h1>Dijital Kültür ve Ses Arşivi</h1>
-          <p>Podcastler, sesli kitaplar, şehir tarihi ve kültür sanat gündemine dair her şey tek bir platformda.</p>
-          <Link to="/podcast" className="btn">Dinlemeye Başla</Link>
-        </div>
-      </header>
+      <HeroSection />
 
-      {/* Haber & Yeni Eklenenler Slider */}
       <NewsSlider />
 
-      {/* Biz Kimiz */}
+      {/* Mavi İçerik & Mavi Proje */}
+      <section className="section mavi-icerik-section">
+        <div className="container">
+          <h2 className="section-title">Mavi İçerik &amp; Mavi Proje</h2>
+          <p className="section-subtitle">Dijital dünyaya taşıdığımız kültürel miras ve içerikler</p>
+          <div className="mavi-icerik-grid">
+            <Link to="/podcast" className="mavi-card mavi-podcast">
+              <div className="mavi-card-icon">🎧</div>
+              <h3>Mavi Podcast</h3>
+              <p>Annelik, kültür, şehir tarihi üzerine derinlikli sohbetler.</p>
+              <span className="mavi-card-link">Dinle →</span>
+            </Link>
+            <Link to="/projeler" className="mavi-card mavi-proje">
+              <div className="mavi-card-icon">🚀</div>
+              <h3>Mavi Proje</h3>
+              <p>Kültürel mirası dijital dünyaya taşıyan özgün projeler.</p>
+              <span className="mavi-card-link">Keşfet →</span>
+            </Link>
+            <Link to="/sesli-kitap" className="mavi-card mavi-ekitap">
+              <div className="mavi-card-icon">📖</div>
+              <h3>Mavi E-Kitap</h3>
+              <p>Seçkin eserlerin sesli arşivi, anında dinlemeye hazır.</p>
+              <span className="mavi-card-link">İncele →</span>
+            </Link>
+            <Link to="/is-birlikcilerimiz" className="mavi-card mavi-isbirligi">
+              <div className="mavi-card-icon">🤝</div>
+              <h3>Mavi İş Birliği</h3>
+              <p>Platformumuzu güçlendiren ortaklar ve iş birlikçiler.</p>
+              <span className="mavi-card-link">Gör →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Biz Kimiz Özet */}
       <section id="biz-kimiz" className="section bg-alt">
         <div className="container">
           <h2 className="section-title">Biz Kimiz &amp; Vizyonumuz</h2>
@@ -105,7 +233,7 @@ function HomePage() {
             </div>
             <div className="about-card">
               <h3>Vizyonumuz</h3>
-              <p>Gelecek nesillere kalıcı bir dijital kütüphane bırakmak; dinleyicilerimizi derinlikli podcastler, sesli e-kitaplar ve nitelikli içeriklerle buluşturmaktır.</p>
+              <p>Gelecek nesillere kalıcı bir dijital kütüphane bırakmak; dinleyicilerimizi derinlikli podcast'ler, sesli e-kitaplar ve nitelikli içeriklerle buluşturmaktır.</p>
             </div>
           </div>
         </div>
