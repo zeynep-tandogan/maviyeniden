@@ -73,26 +73,26 @@ const slides = [
 /* ─── Hero Bileşeni ─── */
 function HeroSection() {
   const [bgIndex, setBgIndex] = useState(0);
-  const [fadeIn, setFadeIn] = useState(true);
 
   useEffect(() => {
+    // Fotoğrafların ekranda bekleme süresi 9 saniyeye (9000ms) çıkarıldı
     const interval = setInterval(() => {
-      setFadeIn(false);
-      setTimeout(() => {
-        setBgIndex((prev) => (prev + 1) % heroSlides.length);
-        setFadeIn(true);
-      }, 600);
-    }, 6000);
+      setBgIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 9000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <header className="hero">
-      {/* Kendi kendine dönen arka plan fotoğrafı */}
-      <div
-        className={`hero-bg-slide ${fadeIn ? 'visible' : ''}`}
-        style={{ backgroundImage: `url('${heroSlides[bgIndex].url}')` }}
-      />
+      {/* Tüm slayt resimlerini katman olarak ekleyip CSS cross-fade ile pürüzsüz geçiş sağlıyoruz.
+          Bu sayede geçiş anındaki siyah boşluk ve yüklenme gecikmesi (flash) tamamen engellenir. */}
+      {heroSlides.map((slide, i) => (
+        <div
+          key={i}
+          className={`hero-bg-slide ${i === bgIndex ? 'visible' : ''}`}
+          style={{ backgroundImage: `url('${slide.url}')` }}
+        />
+      ))}
       {/* Katman gradyanı */}
       <div className="hero-overlay-gradient" />
       {/* Taneli doku efekti */}
@@ -120,7 +120,7 @@ function HeroSection() {
           <span
             key={i}
             className={`hero-slide-dot ${i === bgIndex ? 'active' : ''}`}
-            onClick={() => { setFadeIn(false); setTimeout(() => { setBgIndex(i); setFadeIn(true); }, 300); }}
+            onClick={() => setBgIndex(i)}
           />
         ))}
       </div>
